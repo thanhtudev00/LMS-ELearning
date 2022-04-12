@@ -1,0 +1,286 @@
+@import "./index.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+
+body {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    font-family: $font-family, $font-title;
+}
+
+a {
+    text-decoration: none;
+    color: $color-white;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+
+//margin
+.mr-32 {
+    margin-right: 32px;
+}
+
+.mr-24 {
+    margin-right: 24px;
+}
+
+.mr-16 {
+    margin-right: 16px;
+}
+
+.mr-8 {
+    margin-right: 8px;
+}
+
+.mb-48 {
+    margin-bottom: 48px;
+}
+
+.mb-32 {
+    margin-bottom: 32px;
+}
+
+.mb-28 {
+    margin-bottom: 28px;
+}
+
+.mb-24 {
+    margin-bottom: 24px;
+}
+
+.mb-16 {
+    margin-bottom: 16px;
+}
+
+.mt-51 {
+    margin-top: 51px;
+}
+
+.mt-32 {
+    margin-top: 32px;
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+.mt-16 {
+    margin-top: 16px !important;
+}
+
+.mt-8 {
+    margin-top: 8px;
+}
+
+.ml-8 {
+    margin-left: 8px;
+}
+
+// justify-content
+.j-center {
+    justify-content: center;
+}
+
+.j-start {
+    justify-content: flex-start;
+}
+
+//txt-black
+.txt-black {
+    color: $txt-black !important;
+}
+
+// main-title
+.main-title {
+    @include title-48;
+}
+
+.title-28 {
+    @include title-28($txt-black);
+
+    font-weight: 700;
+}
+
+.title-22 {
+    @include title-28($txt-black);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.title-18 {
+    @include title-18;
+    opacity: 1;
+}
+
+.title-18-bold {
+    @include title-18;
+    color: $txt-black !important;
+    font-weight: 700;
+    opacity: 1;
+}
+
+.title-18-orange {
+    @include title-18;
+    color: $txt-title-orange !important;
+    font-weight: 700;
+}
+
+.title-18-black {
+    @include title-18;
+    color: $txt-black !important;
+    font-weight: 700;
+}
+
+.title-16 {
+    @include title-16;
+}
+
+.title-16-bold {
+    @include title-16;
+    font-weight: 700;
+}
+
+.title-16-note {
+    @include title-16;
+    opacity: 0.5;
+    margin-top: 8px;
+    min-width: 500px;
+}
+
+//border bottom form layout
+.border-bottom {
+    width: 100%;
+    border: 1px solid $color-gray;
+    margin-bottom: 24px;
+}
+
+.border-left {
+    height: 100%;
+    border: 1px solid $color-gray;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    color: $txt-primary;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity ease-in-out 0.3s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+//main layout
+
+.main-layout {
+    width: 1920px;
+    min-height: 1080px;
+    background-color: $main-color;
+    border-radius: $border-radius;
+    padding: 24px 64px;
+    // border: 1px solid;
+    position: relative;
+}
+
+//contain
+
+.container {
+    width: 1640px;
+    height: auto;
+    background-color: $main-color;
+    // border: 1px solid;
+    position: relative;
+    margin-left: 150px;
+}
+
+// active
+.active-role {
+    opacity: 1;
+    animation: hide-active-role 0.4s ease-in-out;
+}
+
+.active-table-content {
+    animation: changeColorContent ease-in-out 0.5s;
+    background: #cc5c00;
+
+    h3 {
+        color: $txt-white !important;
+    }
+}
+
+//select-year
+.select {
+    @include flex(center, static);
+
+    h3 {
+        margin-right: 6px;
+    }
+
+    .ant-select-selector {
+        width: 136px !important;
+        height: 32px !important;
+        border: 1px solid $color-black !important;
+    }
+
+    .ant-select-selector {
+        &::before {
+            content: "";
+            height: 100%;
+            position: absolute;
+            width: 1px;
+            background-color: $color-black;
+            top: 0;
+            right: 25%;
+        }
+    }
+
+    .ant-select-arrow {
+        font-size: 14px;
+        color: $color-primary;
+    }
+}
+
+//key frames
+@keyframes hide-active-role {
+    from {
+        display: none;
+        opacity: 0.5;
+    }
+
+    to {
+        display: block;
+
+        opacity: 1;
+    }
+}
+
+@keyframes transform-menu {
+    from {
+        transform: translateX(-100%);
+        opacity: 0.6;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes changeColorContent {
+    from {
+        background-color: #fff9f4;
+    }
+
+    to {
+        background: #cc5c00;
+    }
+}

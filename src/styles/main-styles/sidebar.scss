@@ -1,0 +1,142 @@
+@use "../index.scss" as *;
+
+.sidebar {
+    max-width: 112px;
+    width: 100%;
+    min-height: 1080px;
+    height: 100%;
+    background-color: $color-primary;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    transition: all linear 0.3s;
+    z-index: 999;
+
+    &-logo {
+        width: 74px;
+        height: 42px;
+        margin: 58px 19px 80px 19px;
+    }
+
+    &__link {
+        position: relative;
+
+        &-icon {
+            height: 27px;
+            width: 27px;
+            margin: 0 42px 60px 42px;
+            color: $color-white;
+            position: relative;
+            opacity: 1;
+            transition: all ease-in-out 0.3s;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        &::before {
+            content: "";
+            width: 33px;
+            height: 120%;
+            top: -10%;
+            right: -15%;
+            background-color: transparent;
+            position: absolute;
+        }
+
+        .active-sidebar {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            transition: all ease-in-out 0.3s;
+
+            &::before {
+                content: "";
+                width: 80px;
+                height: 80px;
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: $border-radius;
+                position: absolute;
+                top: -32%;
+                left: 18%;
+            }
+        }
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 112px;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all ease-in-out 0.5s;
+
+    .ant-menu {
+        width: 397px;
+        height: 1080px;
+        background: $color-white;
+        box-shadow: 4px 4px 10px rgba(133, 178, 220, 0.25);
+    }
+
+    .ant-menu-item:nth-child(1) {
+        margin-top: 69%;
+    }
+
+    .ant-menu-item {
+        margin-bottom: 40px;
+    }
+
+    &__link {
+        @include flex(center, static);
+
+        &-icon {
+            font-size: 22px;
+            color: $color-black;
+            margin-right: 12px;
+        }
+    }
+
+    &__submenu {
+        height: auto;
+        margin-top: -12px;
+
+        .ant-menu-item:nth-child(1) {
+            margin-top: -40px;
+        }
+
+        .ant-menu-item {
+            //   margin-left: 4px;
+            background: #fff !important;
+        }
+
+        .ant-menu-item-selected::after {
+            opacity: 0;
+        }
+
+        &__link {
+            h3 {
+                @include flex(center, static);
+                opacity: 1;
+                transition: all ease-in-out 0.3s;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+.active-menu {
+    color: $txt-primary !important;
+    background-color: $color-white;
+}
+
+.sidebar:hover .menu {
+    opacity: 1;
+    transform: translateX(0);
+}
